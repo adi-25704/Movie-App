@@ -1,27 +1,23 @@
-import { useState } from 'react'
 import './App.css'
-import { fetchMovies } from './services/movieApi'
-import SearchBar from './components/searchbar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SearchBar from './components/searchbar';
+import SearchResultsPage from './pages/searchResultsPage';
+import Home from './pages/home';
 
 function App() {
-  const [count, setCount] = useState(0)
-  
-
-
-
   return (
-    <>
-      <h1>Search Movies</h1>
-      <SearchBar onSearch={async (title) => {
-        try {
-          const movies = await fetchMovies(title);
-          console.log("Fetched movies:", movies);
-        } catch (error) {
-          console.error("Error fetching movies:", error);
-        }
-      }} />
-    </>
+    <BrowserRouter>
+      <div className="app-container">
+        <h1>Movie Finder</h1>
+        <SearchBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResultsPage />} />
+          {/* <Route path="/movie/:id" element={<MovieDetailsPage />} /> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
