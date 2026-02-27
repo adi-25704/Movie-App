@@ -4,9 +4,9 @@ import { mapMovieData } from '../utils/mapper';
 const API_SESSION_TOKEN = import.meta.env.VITE_API_SESSION_TOKEN;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-async function fetchMovies(query:string): Promise<Movie[]>
+async function fetchMovies(query:string, page: number = 1): Promise<Movie[]>
 {
-    const url = `${BASE_URL}/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
+    const url = `${BASE_URL}/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`;
     const options = {
         method: 'GET',
         headers: 
