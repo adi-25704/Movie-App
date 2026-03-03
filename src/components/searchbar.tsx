@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import { saveSearchQuery } from '../utils/storage';
 
+
 import '../index.css';
 
-function SearchBar() {
-  const [title, setTitle] = useState("");
+function SearchBar({title, setTitle}: {title: string, setTitle: (title: string) => void}) {
+  // const [title, setTitle] = useState("");
   const navigate = useNavigate();
-
   const handleSearch = () => {
     if (title.trim()) {
       navigate(`/search?q=${encodeURIComponent(title)}`);
@@ -21,15 +21,26 @@ function SearchBar() {
     }
   };
 
-  const debouncedTitle = useDebounce(title, 1000);
+  const debouncedTitle = useDebounce(title, 500);
 
   useEffect(() => {
+
+    if(title.trim() === "") 
+      {
+        console.log('Search query is empty, not navigating.');
+        return;
+      }
+
     if (debouncedTitle.trim()) {
+      console.log('Navigating to search results for:', debouncedTitle);
       saveSearchQuery(debouncedTitle);
       navigate(`/search?q=${encodeURIComponent(debouncedTitle)}`);
     }
-  }, [debouncedTitle, navigate]);
-
+    else
+    {
+      console.log('Search query is empty or showTitle is false, not navigating.');
+    }
+  }, [debouncedTitle, navigate, title]);
 
   return (
     <section id="SearchScreen" className="screen">

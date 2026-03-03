@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  max-width: 1280px;
 }
 
 h1 {
@@ -90,7 +91,7 @@ button:focus-visible {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
   width: 100%;
-  max-width: 500px;
+  max-width: 1280px;
 }
 
 #SearchScreen input {

@@ -1,8 +1,16 @@
 #root {
-  max-width: 1280px;
+  width: 100% !important;
+  max-width: 900px !important;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.app-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr ;
+  align-items: center;
+
 }
 
 .logo {

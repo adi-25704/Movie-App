@@ -2,23 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './movieCard.css';
 import type { Movie } from '../types/movieTypes'; 
+import MovieDetails from './movieDetails';
 
 interface MovieCardProps {
   movie: Movie;
+  openOverlay: (movie:Movie) => void;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ movie, openOverlay }) => {
 
   const posterUrl = movie.posterPath 
-    ? `https://image.tmdb.org/t/p/w500${movie.posterPath}`
-    : 'https://via.placeholder.com/500x750?text=No+Poster';
+    ? `https://image.tmdb.org/t/p/w342${movie.posterPath}`
+    : 'https://via.placeholder.com/550x750?text=No+Poster';
 
   const releaseYear = movie.releaseDate ? movie.releaseDate.split('-')[0] : 'N/A';
 
   return (
-    <Link to={`/movie/${movie.id}`} className="movie-card-link">
-      <div className="movie-card">
-        <div className="poster-container">
+    // <Link to={`/movie/${movie.id}`} className="movie-card-link">
+      <div className="movie-card" onClick={() => openOverlay(movie)}>
+        <div className="poster-container" onClick={() => openOverlay(movie)}>
           <img src={posterUrl} alt={movie.title} loading="lazy" />
           <div className="rating-badge">
             {movie.voteAvg.toFixed(1)}
@@ -30,7 +32,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           <p>{releaseYear} • {movie.language.toUpperCase()}</p>
         </div>
       </div>
-    </Link>
+    //</Link>
   );
 };
 

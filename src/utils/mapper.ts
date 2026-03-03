@@ -1,4 +1,4 @@
-import type {Movie} from '../types/movieTypes';
+import type {Movie, Cast} from '../types/movieTypes';
 
 function mapMovieData(movieData: any): Movie {
     const movie: Movie = {
@@ -17,4 +17,12 @@ function mapMovieData(movieData: any): Movie {
     return movie;
 }
 
-export {mapMovieData};
+function mapCastData(castData: any): Cast {
+    const cast:Cast ={
+        actors: castData.cast.filter((member: any) => member.known_for_department === 'Acting' && member.order < 10).map((member: any) => member.name),
+        directors: castData.crew.filter((member: any) => member.known_for_department === 'Directing' && member.job === 'Director').map((member: any) => member.name)
+    }     
+    return cast;
+}
+    
+export {mapMovieData, mapCastData};
