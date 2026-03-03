@@ -1,6 +1,7 @@
 .search-results-container {
+    width: 90%;
     padding: 2rem;
-    max-width: 1600px;
+    max-width: 1280px;
     margin: 0 auto;
     color: #fff;
     background-color: #141414;
@@ -19,7 +20,7 @@
 .movie-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 2rem;
+    gap: 20px;
 }
 
 .pagination {

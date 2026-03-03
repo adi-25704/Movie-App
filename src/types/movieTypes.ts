@@ -18,8 +18,12 @@ interface Cast
     actors: string[] //known for department is acting and order < 10
     directors: string[] //Job is Director
 }
-
-export type {Movie, Cast};
+interface Genre
+{
+    id: number
+    name: string
+}
+export type {Movie, Cast, Genre};
 
 // https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
 //w92: Tiny thumbnail
