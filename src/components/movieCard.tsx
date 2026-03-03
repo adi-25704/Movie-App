@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './movieCard.css';
 import type { Movie } from '../types/movieTypes'; 
-import MovieDetails from './movieDetails';
 
 interface MovieCardProps {
   movie: Movie;

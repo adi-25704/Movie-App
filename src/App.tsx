@@ -1,6 +1,6 @@
 import './App.css'
 import myLogo from './assets/Movie_Logo.png';
-import { BrowserRouter, Routes, Route, Link, useNavigate} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import SearchBar from './components/searchbar';
 import SearchResultsPage from './pages/searchResultsPage';
 import Home from './pages/home';

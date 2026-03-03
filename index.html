@@ -2,12 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A movie application that provides real-time movie updates, forecasts, and interactive features for users to stay informed about current and upcoming movies.">
+    <meta name="author" content="Aditya Desai">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://adi-25704.github.io/Movie-App/index.html">
+    <link rel="stylesheet" href="./src/index.css">
     <link rel="icon" type="image/png" href="./src/assets/Movie_Logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Movie App - Real-time Movie Updates">
+    <meta property="og:description" content="A movie application that provides real-time movie updates, forecasts, and interactive features for users to stay informed about current and upcoming movies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://adi-25704.github.io/Movie-App/index.html">   
+    <meta property="og:image" content="./assets/Movie_Logo.png"> 
+     
     <title>movie-app</title>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Movie App",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Web",
+    "description": "A movie application that provides real-time movie updates, forecasts, and interactive features for users to stay informed about current and upcoming movies.",
+    "url": "https://adi-25704.github.io/Movie-App/index.html",
+    "author": { 
+      "@type": "Person",
+      "name": "Aditya Desai"}
+    }
+    </script>
   </head>
   <body>
+    <a href="#root">Skip to main content</a>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="./src/main.tsx" defer></script>
   </body>
 </html>

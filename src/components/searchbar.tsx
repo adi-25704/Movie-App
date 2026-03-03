@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import { saveSearchQuery } from '../utils/storage';
@@ -7,7 +7,6 @@ import { saveSearchQuery } from '../utils/storage';
 import '../index.css';
 
 function SearchBar({title, setTitle}: {title: string, setTitle: (title: string) => void}) {
-  // const [title, setTitle] = useState("");
   const navigate = useNavigate();
   const handleSearch = () => {
     if (title.trim()) {
