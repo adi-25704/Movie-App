@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './movieDetails.css';
 import type { Movie, Cast } from '../types/movieTypes'; 
 import {fetchCast} from '../services/movieApi';
