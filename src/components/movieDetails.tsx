@@ -41,19 +41,59 @@ useEffect(() => {
     : 'https://via.placeholder.com/550x750?text=No+Poster';
     console.log('Movie Details:', movie);
     return (
-        <div className="movie-details-card" onClick={() => closeOverlay(movie)}>
-            <div className="movie-details-content">
-                <img src={posterUrl} alt={movie.title} loading="lazy" />
-                <h2>{movie.title}</h2>
-                <p>Release Date: {movie.releaseDate}</p>
-                <p>Genres: {movie.genre.map(id => genres.find(g => g.id === id)?.name).join(', ')}</p>
-                <p>Language: {movie.language.toUpperCase()}</p>
-                <p>Rating: {movie.voteAvg.toFixed(1)}</p>
-                <p>{movie.overview}</p>
-                <p>{loading ? "Loading cast..." : `Cast:\n actors: ${cast.actors.join(', ')}\n directors: ${cast.directors.join(', ')}`}</p>
-                
-                <Link to="/" onClick={() => closeOverlay(movie)}>Back to Search</Link>
-            </div>
+        <div className="movie-overlay" onClick={() => closeOverlay(movie)} role="dialog" aria-modal="true">
+            <article className="movie-details-card" onClick={(e) => e.stopPropagation()}>
+                <header className="overlay-header">
+                    <button className="close-btn" onClick={() => closeOverlay(movie)} aria-label="Close details">
+                        &times;
+                    </button>
+                </header>
+                <div className="scrollable-content">
+                    <div className="movie-details-grid">
+                        <figure className="poster-aside">
+                            <img src={posterUrl} alt={`Poster for ${movie.title}`} />
+                        </figure>
+
+                        <section className="info-main">
+                            <h1>{movie.title}</h1>
+                            
+                            <div className="meta-badges">
+                                <data value={movie.voteAvg}>⭐ {movie.voteAvg.toFixed(1)}</data>
+                                <time dateTime={movie.releaseDate}>Release Year: {movie.releaseDate.split('-')[0]}</time>
+                                <span className="lang">Language: {movie.language.toUpperCase()}</span>
+                            </div>
+
+                            <nav className="genres-list">
+                                {movie.genre.map(id => (
+                                    <span key={id} className="genre-tag">
+                                        {genres.find(g => g.id === id)?.name}
+                                    </span>
+                                ))}
+                            </nav>
+
+                            <section>
+                                <h2>Overview</h2>
+                                <p className="overview-text">{movie.overview}</p>
+                            </section>
+
+                            <footer className="cast-section">
+                                <h2>Cast & Crew</h2>
+                                {loading ? (
+                                    <div role="status">Loading cast...</div>
+                                ) : (
+                                    <dl className="cast-description-list">
+                                        <dt>Actors</dt>
+                                        <dd>{cast.actors.join(', ')}</dd>
+                                        
+                                        <dt>Directors</dt>
+                                        <dd>{cast.directors.join(', ')}</dd>
+                                    </dl>
+                                )}
+                            </footer>
+                        </section>
+                    </div>
+                </div>
+            </article>
         </div>
     );
 

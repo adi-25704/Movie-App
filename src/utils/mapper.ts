@@ -24,5 +24,9 @@ function mapCastData(castData: any): Cast {
     }     
     return cast;
 }
+
+function movieSortByPopularity(movies: Movie[]): Movie[] {
+    return movies.sort((a, b) => b.popularity - a.popularity);
+}
     
-export {mapMovieData, mapCastData};
+export {mapMovieData, mapCastData, movieSortByPopularity};

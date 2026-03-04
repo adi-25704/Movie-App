@@ -30,7 +30,7 @@ const Home = () => {
         {history.map((item, index) => (
           <Link 
             key={index} 
-            to={`/search?q=${encodeURIComponent(item)}`} 
+            to={`/Movie-App/search?q=${encodeURIComponent(item)}`} 
             className="history-chip"
           >
             {item}

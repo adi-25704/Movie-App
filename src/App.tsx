@@ -39,7 +39,7 @@ function App() {
     
       <div className="app-container">
         <div className="app-header">
-          <Link to="/" onClick={handleReset}>
+          <Link to="/Movie-App/" onClick={handleReset}>
             <img src={myLogo} alt="Movie Finder Logo" className="logo" />
           </Link>
           <h1>Movie Finder</h1>
@@ -47,8 +47,8 @@ function App() {
         <GenreContext.Provider value={genre}>
         <SearchBar title={title} setTitle={setTitle} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<SearchResultsPage />} />
+          <Route path="/Movie-App/" element={<Home />} />
+          <Route path="/Movie-App/search" element={<SearchResultsPage />} />
         </Routes>
         </GenreContext.Provider>        
       </div>

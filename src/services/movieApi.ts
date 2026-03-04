@@ -1,12 +1,12 @@
 import type { Movie, Cast, Genre } from '../types/movieTypes';
-import { mapMovieData, mapCastData } from '../utils/mapper';
+import { mapMovieData, mapCastData, movieSortByPopularity } from '../utils/mapper';
 
 const API_SESSION_TOKEN = import.meta.env.VITE_API_SESSION_TOKEN;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 async function fetchMovies(query:string, page: number = 1): Promise<Movie[]>
 {
-    const url = `${BASE_URL}/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`;
+    const url = `${BASE_URL}/search/movie?query=${query}&include_adult=true&language=en-US&page=${page}`;
     const options = {
         method: 'GET',
         headers: 
@@ -25,7 +25,7 @@ async function fetchMovies(query:string, page: number = 1): Promise<Movie[]>
         const data = await response.json();
             
         console.log(data);
-        return data.results.map(mapMovieData);
+        return movieSortByPopularity(data.results.map(mapMovieData));
     }
     catch(error){
         console.error('Error fetching movies:', error);
