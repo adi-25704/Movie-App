@@ -1,40 +1,35 @@
-/* 1. Backdrop stays fixed */
 .movie-overlay {
     position: fixed;
-    inset: 0; /* Shortcut for top/left/right/bottom: 0 */
+    inset: 0;
     background: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2000;
-    padding: 20px; /* Padding so card doesn't touch screen edges */
+    padding: 20px;
     backdrop-filter: blur(10px);
 }
 
-/* 2. The Card with Max-Height and Scrolling */
 .movie-details-card {
     background: #1a1a1a;
     width: 100%;
     max-width: 1000px;
-    max-height: 90vh; /* Prevents card from going off-screen */
+    max-height: 90vh;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Clips the inner scrollable area */
+    overflow: hidden;
 }
 
-/* 3. The inner area that actually scrolls */
 .scrollable-content {
     overflow-y: auto;
     padding: 0 40px 40px 40px;
-    /* Smooth scrolling for iOS */
     -webkit-overflow-scrolling: touch; 
 }
 
-/* 4. The Grid Layout */
 .movie-details-grid {
     display: grid;
-    grid-template-columns: 300px 1fr; /* Image width then remaining space */
+    grid-template-columns: 300px 1fr;
     gap: 40px;
     margin-top: 20px;
 }
@@ -42,15 +37,14 @@
 .poster-aside img {
     width: 100%;
     border-radius: 8px;
-    position: sticky; /* Keeps poster visible while reading text */
+    position: sticky;
     top: 0;
 }
 
 
-/* 5. RESPONSIVE MEDIA QUERY: Tablet & Mobile */
 @media (max-width: 850px) {
     .movie-details-grid {
-        grid-template-columns: 1fr; /* Stacks image on top of text */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
@@ -64,7 +58,7 @@
     }
 
     .movie-details-card {
-        max-height: 95vh; /* Gives more room on mobile */
+        max-height: 95vh;
     }
 
     .meta-badges
@@ -100,7 +94,7 @@
 
 .cast-description-list dt {
     font-weight: bold;
-    color: #f5c518; /* Golden color for labels */
+    color: #f5c518;
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 1px;

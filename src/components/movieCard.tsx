@@ -8,15 +8,14 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie, openOverlay }) => {
-
+  const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='450' viewBox='0 0 300 450'%3E%3Crect width='300' height='450' fill='none' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E";
   const posterUrl = movie.posterPath 
     ? `https://image.tmdb.org/t/p/w342${movie.posterPath}`
-    : 'https://via.placeholder.com/550x750?text=No+Poster';
+    : placeholder;
 
   const releaseYear = movie.releaseDate ? movie.releaseDate.split('-')[0] : 'N/A';
 
   return (
-    // <Link to={`/movie/${movie.id}`} className="movie-card-link">
       <div className="movie-card" onClick={() => openOverlay(movie)}>
         <div className="poster-container" onClick={() => openOverlay(movie)}>
           <img src={posterUrl} alt={movie.title} loading="lazy" />
@@ -30,7 +29,6 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, openOverlay }) => {
           <p>{releaseYear} • {movie.language.toUpperCase()}</p>
         </div>
       </div>
-    //</Link>
   );
 };
 

@@ -12,7 +12,7 @@ interface MovieDetailsProps {
 
 
 const MovieDetails: React.FC<MovieDetailsProps> = ({ movie, closeOverlay }) => {
-
+const placeholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='450' viewBox='0 0 300 450'%3E%3Crect width='300' height='450' fill='none' stroke='%23333' stroke-width='2'/%3E%3C/svg%3E";
 const genres = useContext(GenreContext);
 const [cast,setCast] = useState<Cast>({actors: [], directors: []});
 const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ useEffect(() => {
 
     const posterUrl = movie.posterPath 
     ? `https://image.tmdb.org/t/p/w342${movie.posterPath}`
-    : 'https://via.placeholder.com/550x750?text=No+Poster';
+    : placeholder;
     console.log('Movie Details:', movie);
     return (
         <div className="movie-overlay" onClick={() => closeOverlay(movie)} role="dialog" aria-modal="true">

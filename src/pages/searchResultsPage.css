@@ -1,5 +1,5 @@
 .search-results-container {
-    width: 90%;
+    width: 95%;
     padding: 2rem;
     max-width: 1280px;
     margin: 0 auto;
@@ -52,9 +52,122 @@
     background-color: #f40612;
 }
 
-/* Loader */
 .loader {
     text-align: center;
     font-size: 1.2rem;
     margin-top: 5rem;
+}
+
+@media (max-width: 1024px) {
+    .search-results-container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    .results-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+    }
+
+    .pagination {
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .pagination button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .search-results-container {
+        width: 90%;
+        padding: 1rem;
+        min-height: calc(100vh - 60px);
+    }
+
+    .results-header h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 12px;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .pagination button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .pagination span {
+        width: 100%;
+        text-align: center;
+        order: 3;
+    }
+
+    .loader {
+        font-size: 1rem;
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 479px) {
+    .search-results-container {
+        width: 90%;
+        padding: 0.75rem;
+        min-height: calc(100vh - 60px);
+    }
+
+    .results-header h2 {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        word-break: break-word;
+    }
+
+    .results-header span {
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 10px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .pagination button {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .pagination span {
+        order: 2;
+        padding: 0.5rem 0;
+    }
+
+    .loader {
+        font-size: 0.95rem;
+        margin-top: 2rem;
+    }
 }

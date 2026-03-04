@@ -72,3 +72,52 @@
     font-size: 0.85rem;
     color: #b3b3b3;
 }
+
+
+@media (max-width: 767px) {
+    .movie-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .movie-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .movie-info h3 {
+        font-size: 0.9rem;
+    }
+
+    .movie-info p {
+        font-size: 0.75rem;
+    }
+
+    .rating-badge {
+        padding: 3px 6px;
+        font-size: 0.75rem;
+    }
+
+    .adult-badge {
+        padding: 2px 5px;
+        font-size: 0.65rem;
+    }
+}
+
+@media (max-width: 479px) {
+    .movie-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .movie-info {
+        padding: 8px;
+    }
+
+    .movie-info h3 {
+        font-size: 0.8rem;
+        margin: 0 0 4px 0;
+    }
+
+    .movie-info p {
+        font-size: 0.7rem;
+    }
+}
