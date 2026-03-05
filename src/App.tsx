@@ -1,6 +1,6 @@
 import './App.css'
 import myLogo from './assets/Movie_Logo.png';
-import { BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import { HashRouter, Routes, Route, Link} from 'react-router-dom';
 import SearchBar from './components/searchbar';
 import SearchResultsPage from './pages/searchResultsPage';
 import Home from './pages/home';
@@ -35,7 +35,7 @@ function App() {
   
   return (
     
-    <BrowserRouter>
+    <HashRouter>
     
       <div className="app-container">
         <div className="app-header">
@@ -52,7 +52,7 @@ function App() {
         </Routes>
         </GenreContext.Provider>        
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
